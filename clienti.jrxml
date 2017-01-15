@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="clienti" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="11cfa692-2ef4-4a96-94c0-ad6b2a441834">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select c.nume as ncli,pren,p.nume as nprod,den,cant,datav,pret from producator p,piese,vanzare,factura,client c where idp=Producator_idp and codp=Piese_codp and Vanzare_codf=codf and codc=Client_codc]]>
+	</queryString>
+	<field name="ncli" class="java.lang.String"/>
+	<field name="pren" class="java.lang.String"/>
+	<field name="nprod" class="java.lang.String"/>
+	<field name="den" class="java.lang.String"/>
+	<field name="cant" class="java.lang.Integer"/>
+	<field name="datav" class="java.sql.Date"/>
+	<field name="pret" class="java.lang.Integer"/>
+	<group name="ncli">
+		<groupExpression><![CDATA[$F{ncli}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<textField>
+					<reportElement uuid="fdd7ccf2-f6d7-4540-bdcc-0cd472fc5a1e" x="23" y="30" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{ncli}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement uuid="d88fe73f-aba6-4ac8-b30b-51e00804bdb1" x="0" y="37" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nprod}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6d2d154a-2ca5-49fc-ac32-145addf1a538" x="100" y="38" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{den}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1f77aff1-f668-4717-bb54-6216aa61d3e3" x="200" y="37" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a9bed80f-7cc2-466e-8bb4-652e2eededf9" x="300" y="37" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{datav}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3e76753f-35bc-413c-8090-3a89cef5ce58" x="400" y="38" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pret}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

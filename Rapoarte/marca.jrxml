@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="marca" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2a45beba-bc11-4614-b129-cdf10565ae97">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select marca,model,nume,den,cant,datav from producator,masina,compatibilitate c,piese,factura f,vanzare where idp=Producator_idp and codp=c.Piese_codp and codm=Masina_codm and codp=f.Piese_codp and codf=Vanzare_codf]]>
+	</queryString>
+	<field name="marca" class="java.lang.String"/>
+	<field name="model" class="java.lang.String"/>
+	<field name="nume" class="java.lang.String"/>
+	<field name="den" class="java.lang.String"/>
+	<field name="cant" class="java.lang.Integer"/>
+	<field name="datav" class="java.sql.Date"/>
+	<group name="marca">
+		<groupExpression><![CDATA[$F{marca}]]></groupExpression>
+		<groupHeader>
+			<band height="40">
+				<textField>
+					<reportElement uuid="2e285de0-e8d7-448a-abbc-b4808553a094" mode="Opaque" x="0" y="6" width="555" height="34" forecolor="#006699" backcolor="#E6E6E6"/>
+					<textElement verticalAlignment="Middle">
+						<font size="24"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{marca}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="model">
+		<groupExpression><![CDATA[$F{model}]]></groupExpression>
+		<groupHeader>
+			<band height="47">
+				<textField>
+					<reportElement uuid="f5c7fbbc-332d-4767-a412-7e90e1abaf09" mode="Opaque" x="0" y="0" width="555" height="27" forecolor="#006699" backcolor="#E6E6E6"/>
+					<textElement verticalAlignment="Middle">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{model}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement uuid="fe4c3d05-9ecd-4732-b51b-6f7021df6948" x="0" y="2" width="555" height="1"/>
+				</line>
+				<line>
+					<reportElement uuid="1ffb87f7-2b00-47ce-8842-2226b039bbc1" x="0" y="26" width="555" height="1"/>
+				</line>
+				<staticText>
+					<reportElement uuid="e4312fdb-a97a-4319-8202-549f261d5adf" x="0" y="26" width="133" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Producator]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="18ce06cc-501d-43c9-950c-27147884e519" x="133" y="26" width="173" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Piesa]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="68d52910-dd2f-458e-9138-aeda1fe445a0" x="306" y="26" width="100" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cantitate]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="6726068a-6929-4ea4-a13c-779853f745ab" x="406" y="26" width="148" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Data vanzarii]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="0312b67c-1271-4236-b1d6-0fa0b996911d" mode="Opaque" x="0" y="0" width="555" height="79" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="34" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Raport vanzari]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement uuid="3803c741-d52e-4a85-bf5f-b1d882ff1ecb" x="0" y="0" width="133" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nume}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dc9bce0b-32c2-409a-8f8e-9931e0f4868b" x="306" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dfd9a1ff-bbc1-4018-8653-e2fdc305c22f" x="133" y="1" width="173" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{den}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a40bfe3f-ee3e-454f-a5e5-5e9449fff40a" x="406" y="1" width="149" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd-MM-YYYY").format($F{datav})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement uuid="33a23456-886c-4473-8152-d99438bb3bb7" mode="Opaque" x="0" y="4" width="507" height="20" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" din"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="3b7785f5-8199-4705-9304-f00b8c73605e" mode="Opaque" x="507" y="4" width="40" height="20" backcolor="#E6E6E6"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="d/M/yyyy">
+				<reportElement uuid="f69b0c3b-cbca-4a67-9c16-a6c60dc0b1da" x="9" y="4" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
